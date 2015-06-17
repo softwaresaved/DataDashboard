@@ -1,0 +1,75 @@
+{% extends "default/base.html" %}
+
+
+
+	{% block content %}
+
+<style>
+
+#chart div {
+  font: 10px sans-serif;
+  background-color: steelblue;
+  text-align: right;
+  padding: 3px;
+  margin: 1px;
+  color: white;
+}
+
+ rect {
+  fill: steelblue;
+}
+
+#chart text {
+  fill: white;
+  font: 10px sans-serif;
+  text-anchor: middle;
+}
+
+.bar rect {
+  fill: steelblue;
+  shape-rendering: crispEdges;
+}
+
+.bar text {
+  fill: #fff;
+}
+
+.axis path, .axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+
+
+bar {
+  fill: steelblue;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: black;
+    shape-rendering: crispEdges;
+}
+
+.axis text {
+    font-family: sans-serif;
+    font-size: 11px;
+}
+
+
+</style>
+
+		   <div id="chart"></div>
+		{% block javascripts %}
+            <script src="{{ asset('js/d3.min.js') }}"></script>
+            <script src="{{ asset('js/histogram.js') }}"></script>
+            <script src="{{ asset('js/barchart.js') }}"></script>
+            <script>drawhistogram({{ data | raw }}); </script>
+        {% endblock %}
+  <ul>
+    <li><a href="./{{ hash }}/csv">CSV</a></li>
+    <li><a href="./{{ hash }}/json">JSON</a></li>
+  </ul>
+{% endblock %}

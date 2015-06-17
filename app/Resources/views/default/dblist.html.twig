@@ -1,0 +1,11 @@
+{% extends "default/base.html" %}
+
+{% block content %}
+<h2>Query list</h2>
+<table summary = "List of system queries">
+    <tr><td>Id</td><td>Description<td></tr>
+    {% for query in queries %}
+        <tr><td><a href="../graph/{{ query.qid|e }}">{{ query.title|e }}</a></td><td>{{ query.description | e}}</td></tr>
+    {% endfor %}
+</table>
+{% endblock %}

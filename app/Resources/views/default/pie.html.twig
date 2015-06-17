@@ -1,0 +1,14 @@
+{% extends "default/base.html" %}
+
+{% block content %}
+   <div id="chart"></div>
+        {% block javascripts %}
+            <script src="{{ asset('js/d3.min.js') }}"></script>
+            <script src="{{ asset('js/pie.js') }}"></script>
+            <script>drawpiechart({{ data | raw }}); </script>
+        {% endblock %}
+  <ul>
+    <li><a href="./{{ hash }}/csv">CSV</a></li>
+    <li><a href="./{{ hash }}/json">JSON</a></li>
+  </ul>
+{% endblock %}
