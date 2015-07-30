@@ -3,7 +3,7 @@
 *  Functions to build and run the query
 */
 
-namespace SSI\DataBundle\Model;
+namespace SSI/DataBundle/Model;
 
 class QueryBuild
 {

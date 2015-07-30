@@ -45,7 +45,7 @@ class SSIQueryStore
     */
     public function get ($hash)
     {
-        $storedq = $this->conn->fetchAssoc('SELECT query,vis,datastruc 
+        $storedq = $this->conn->fetchAssoc('SELECT query,vis,datastruc,description, title 
                                             FROM querystore 
                                             WHERE qid = ?', array($hash));
         if (!$storedq) {

@@ -77,6 +77,9 @@ class format
 
          return $jsonstr;
     }
-   
+
+    public function formatCSVData () {
+
+    }
 }
 ?>
