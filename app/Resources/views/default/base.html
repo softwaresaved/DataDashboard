@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block head %}
+            <link rel="stylesheet" href="./css/ssi.css" />
+            <title>{% block title %} {{ title }} {% endblock %} - SSI Data</title>
+        {% endblock %}
+    </head>
+    <body>
+        <div id="container">
+        <div id="header">
+       <div id="header-menu">
+          <a id="header-logo"  href="/" title="Return to data home">
+          </a>
+         <ul class="menu">
+           <li class="expanded"><a href="/">Home</a></li>
+           <li class="expanded"><a href="../data/create">Create a new graph</a></li>
+           <li class="expanded"><a href="http://www.software.ac.uk/about">About Us</a></li>
+           <li class="expanded"><a href="http://www.software.ac.uk/about/contact">Contact Us</a></li>
+         </ul>
+        </div>
+        </div> 
+        <div id="content">{% block content %}{% endblock %}</div>
+        
+            {% block footer %}
+              <div id="footer" style="padding: 5px 0 0; height: 36px;">
+                <div style="width: 12%; float: left;">
+                   <a href="http://creativecommons.org/licenses/by-nc/2.5/scotland/">
+              <img alt="creative commons"
+                 src="http://i.creativecommons.org/l/by-nc/2.5/scotland/88x31.png">
+              </img>
+              </a> 
+              </div>
+                <div style="width: 72%; float: left;">
+                    Except where otherwise noted, content on this site is licensed under a
+                    <a href="http://creativecommons.org/licenses/by-nc/2.5/scotland/">Creative Commons Attribution Non-Commercial 2.5 License</a>.
+<br>
+&copy;2010–2015 <a href="http://www.ed.ac.uk/">The University of Edinburgh</a> on behalf of the <a href="http://www.software.ac.uk/">Software Sustainability Institute</a>.
+                  <a title="Contact us for more information" href="/about/contact">Contact us</a>
+                </div>
+                <div style="width: 16%; float: right;">
+                  <div class="addthis_toolbox addthis_default_style addthis_32x32_style"><script src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4d8b6b1937f2d68b" type="text/javascript">
+                  </div>
+              </div>
+            </div>
+            {% endblock %}
+ 
+    </body>
+</html>

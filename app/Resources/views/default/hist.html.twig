@@ -1,0 +1,16 @@
+{% extends "default/base.html" %}
+
+{% block content %}
+  <h2> {{ title }}</h2>
+  <p> {{ desc }} </p>
+   <div id="chart"></div>
+	{% block javascripts %}
+            <script src="{{ asset('js/d3.min.js') }}"></script>
+            <script src="{{ asset('js/histogram.js') }}"></script>
+            <script>drawhistogram({{ data | raw }}); </script>
+        {% endblock %}
+  <ul>
+    <li><a href="./{{ hash }}/csv">CSV</a></li>
+    <li><a href="./{{ hash }}/json">JSON</a></li>
+  </ul>
+{% endblock %}

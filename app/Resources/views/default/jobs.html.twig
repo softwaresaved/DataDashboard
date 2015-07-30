@@ -1,0 +1,17 @@
+{# app/Resources/views/base.html.twig #}
+<html>
+    <head>
+        {# ... #}
+
+        {% block stylesheets %}
+            <link href="{{ asset('css/main.css') }}" rel="stylesheet" />
+        {% endblock %}
+    </head>
+    <body>
+        {# ... #}
+
+        {% block javascripts %}
+            <script src="{{ asset('js/D3.js') }}"></script>
+        {% endblock %}
+    </body>
+</html>

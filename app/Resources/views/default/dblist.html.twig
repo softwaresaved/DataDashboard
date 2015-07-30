@@ -1,0 +1,16 @@
+{% extends "default/base.html" %}
+
+{% block content %}
+
+<p>The Institute was founded to support the UK’s research software community - a community that includes the majority of UK’s researchers.
+</p>
+
+<h2>List of Graphs</h2>
+<table id="graphlist" summary = "List of system queries">
+    <tr><td id="graphtitle">Title</td><td id="graphdesc">Description<td></tr>
+    {% for query in queries %}
+        <tr><td><a href="../{{ query.qid|e }}">{{ query.title|e }}</a></td><td>{{ query.description | e}}</td></tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
