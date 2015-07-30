@@ -34,10 +34,12 @@ class format
             }
             else {
                 $term = trim(str_replace("'","", substr($exarr[1], 0, -1)));
+
                 $clean_struct["$key"] = call_user_func_array(array($calc, $exarr[0]),array($data, $term));
                 
             }
         }
+
         return $clean_struct;
     }
 

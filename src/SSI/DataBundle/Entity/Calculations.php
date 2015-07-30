@@ -105,11 +105,14 @@ class Calculations
     */  
     private function _array_search($data, $searchterm) {
         $results = array();
+
         foreach ($data as $term => $value) {
-            if ($value[$searchterm]){
-                $results = $value;
+
+            if ($value[$searchterm] && $value[$searchterm] > 0.00){
+                $results[] = $value[$searchterm];
             }   
-        }   
+        }
+   
         return $results;
     }
 }
