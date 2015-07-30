@@ -22,9 +22,9 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 class DefaultController extends Controller
 {
 
-
     /**
-    *@Route("/data/create")
+    * Function to show the create form page
+    * @Route("/data/create")
     */
     public function createAction (Request $request)
     {
@@ -45,7 +45,6 @@ class DefaultController extends Controller
             'form' => $form->createView())
         );
     }
-
 
     /**
     *
@@ -101,6 +100,7 @@ class DefaultController extends Controller
 
         $return_hash = $get->getHashQuery($hash);
         if ($return_hash['query'] == 'none') {
+               // this hash cannot be matched so redirect to existing list
                return $this->redirect('/');
         } else {
            $data = $get->runQuery($return_hash['query']);
@@ -129,7 +129,7 @@ class DefaultController extends Controller
         $queries = $get->fetchTables();
         return $this->render('default/dblist.html.twig', 
                                 array ('queries' => $queries, 
-                                   'title' => 'Software Sustainabilty Institute'
+                                   'title' => 'Software Sustainability Institute'
                                 )
                             );
     }
