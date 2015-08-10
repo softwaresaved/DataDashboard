@@ -28,7 +28,8 @@ class ParseQueryType
         if (sizeof($_tmpq) > 1) {
             $query .= " JOIN place place ON place.lid and jobs.lid";  
         }
-        $labels = json_encode(self::createLabels($data['Data']));
+
+        $labels = ($data['Data']) ? json_encode(self::createLabels($data['Data'])) : "None";
 
         $build = new SSIQueryStore();
 
