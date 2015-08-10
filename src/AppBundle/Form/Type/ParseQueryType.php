@@ -29,7 +29,8 @@ class ParseQueryType
             $query .= " JOIN place place ON place.lid and jobs.lid";  
         }
 
-        $labels = ($data['Data']) ? json_encode(self::createLabels($data['Data'])) : "None";
+        $labels = ($data['Data']) ? json_encode(self::createLabels($data['Data'])) : 
+                                    json_encode(array("None" => "None"));
 
         $build = new SSIQueryStore();
 
