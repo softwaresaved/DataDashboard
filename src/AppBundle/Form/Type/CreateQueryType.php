@@ -28,7 +28,7 @@ class CreateQueryType extends AbstractType
               'choices' => self::allowed_tables(), 
               'expanded' => true,
             ))
-            ->add('Data')
+            ->add('Data', 'text', array('required' => false))
             ->add('save', 'submit');
     }
 
