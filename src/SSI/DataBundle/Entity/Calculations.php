@@ -63,15 +63,18 @@ class Calculations
    *  Function to filter an array by a criteria and a given
    *  operation
    */
-   /*function filter($data,$term, $operation) {
-       $termcount=0;
+   function filter($data,$term) {
+
+       $termcount  ='[';
        foreach ($data as $d) {
-           if ($d[$term] $operation $term) {
-               $termcount++;
+
+           if ($d[$term] > 0) {
+               $termcount .= $d[$term] . ',';
            }
        }
-       return $termcount;
-    }*/
+
+       return substr($termcount, 0, -1) . ']';
+    }
    
    /**
    *  Function to return the size of items in data array
