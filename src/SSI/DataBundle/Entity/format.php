@@ -17,13 +17,14 @@ class format
     public function mapData ($data, $structure) 
     {
         $calc = new Calculations();
-
-        $clean_struct = array();   
+ 
+        $clean_struct = array();
+   
         foreach (json_decode($structure) as $key => $value)
         {
   
             $ndata = (substr($value,0,9)=='remainder') ? str_replace('remainder(', '',$value) : $value;
-
+   
             $exarr = explode("(",$ndata,2);
 
             if (substr($value,0,9) == 'remainder') {
@@ -33,10 +34,10 @@ class format
                 $clean_struct["$key"] = $calc->remainder(sizeof($data), sizeof($size));
             }
             else {
+
                 $term = trim(str_replace("'","", substr($exarr[1], 0, -1)));
 
                 $clean_struct["$key"] = call_user_func_array(array($calc, $exarr[0]),array($data, $term));
-                
             }
         }
 
