@@ -65,15 +65,16 @@ class Calculations
    */
    function filter($data,$term) {
 
-       $termcount  ='[';
+       $termcount  = array();
        foreach ($data as $d) {
 
            if ($d[$term] > 0) {
-               $termcount .= $d[$term] . ',';
+               array_push($termcount, $d[$term]);
            }
        }
-
-       return substr($termcount, 0, -1) . ']';
+       sort($termcount);
+       $count = implode(',',$termcount);
+       return '[' .substr($count, 0, -1) . ']';
     }
    
    /**
