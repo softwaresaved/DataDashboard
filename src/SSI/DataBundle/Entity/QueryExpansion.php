@@ -23,7 +23,7 @@ class QueryExpansion {
     */
     public function expandQuery ($userfunction) {
         $functions = explode(":",$userfunction);
-        var_dump($functions);  
+ 
         switch($functions[0]) {
             case 'count':
                 return 'count($data)';
@@ -44,6 +44,7 @@ class QueryExpansion {
                 //hacky but formats function correctly
                 return 'filterTrue' . $functions[1];
             case 'filter':
+                return 'filter' . $functions[1];
             case 'filterequal':
             default:
                 return 'Unknown function';
