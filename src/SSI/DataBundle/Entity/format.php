@@ -37,7 +37,7 @@ class format
 
                 $term = trim(str_replace("'","", substr($exarr[1], 0, -1)));
 
-                $clean_struct["$key"] = call_user_func_array(array($calc, $exarr[0]),array($data, $term));
+                $clean_struct[$key] = call_user_func_array(array($calc, $exarr[0]),array($data, $term));
             }
         }
 
@@ -71,16 +71,15 @@ class format
 
          //map the data
          $map_data = self::mapData($data, $structure);
-          
+      
          foreach ($map_data as $key => $value) {
-            $jsonstr .= "{ 'label' : '$key', 'value' : '$value' },";
+            $jsonstr .= '{ "label" : '.$key.', "value" : '.$value.' },';
          }   
 
-         $jsonstr = '['. substr($jsonstr, 0, -1) . ']';
+         $jsonstr = (sizeof($map_data) == 1) ? substr($jsonstr, 0, -1) : '['. substr($jsonstr, 0, -1) . ']';
 
          return $jsonstr;
     }
-
     public function formatCSVData () {
 
     }
