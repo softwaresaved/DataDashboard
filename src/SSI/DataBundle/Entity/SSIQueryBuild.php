@@ -7,7 +7,7 @@ namespace SSI\DataBundle\Model;
 
 class QueryBuild
 {
-    private string $conn;
+    private $conn;
 
     public function __construct()
     {
@@ -41,7 +41,7 @@ class QueryBuild
     *  @param: Array $data
     *  @todo: add in the measures or where clause
     */
-    private _build_query($data)
+    private function _build_query($data)
     {
        $sql = "SELECT ";
 
@@ -52,7 +52,7 @@ class QueryBuild
        return $sql;
     }
 
-    private _build_query_field ($data)
+    private function _build_query_field ($data)
     {
        $sql  = '';
        foreach ($d as $data)
