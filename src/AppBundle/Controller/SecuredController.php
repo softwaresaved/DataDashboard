@@ -73,7 +73,7 @@ class SecuredController extends Controller
              return $this->redirect('../');
         }
 
-        return $this->render('default/createquery.html.twig', array(
+        return $this->render('AppBundle::default/createquery.html.twig', array(
             'form' => $form->createView())
         );
     }
