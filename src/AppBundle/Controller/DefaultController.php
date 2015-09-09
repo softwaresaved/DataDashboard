@@ -3,8 +3,6 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Model\ParseData;
-use AppBundle\Form\Type\CreateQueryType;
-use AppBundle\Form\Type\ParseQueryType;
 use AppBundle\Form\Type\GetQueryType;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -21,31 +19,6 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 
 class DefaultController extends Controller
 {
-
-    /**
-    * Function to show the create form page
-    * @Route("/data/create")
-    */
-    public function createAction (Request $request)
-    {
-        $options = Array();
-        $form = $this->createForm(new CreateQueryType(), $options);
-
-        //handle request loop
-        $form->handleRequest($request);
-
-        if ($form->isValid()) {
-             $p = new ParseQueryType();
-             $p->ParseQuery($form->getData());
-
-             return $this->redirect('../');
-        }
-
-        return $this->render('default/createquery.html.twig', array(
-            'form' => $form->createView())
-        );
-    }
-
     /**
     *
     * Function to provide the graph template
