@@ -1,6 +1,11 @@
-{# app/Resources/views/Default/new.html.twig #}
-<div class="formbuild">
-  {{ form_start(form) }}
-  {{ form_widget(form) }}
-  {{ form_end(form) }}
-</div>
+{% extends 'AppBundle::Secured/layout.html.twig' %}
+
+{% block content %}
+   <div class="formbuild">
+      <div id="formstart">
+          {{ form_start(form) }}
+          {{ form_widget(form) }}
+          {{ form_end(form) }}
+      </div>
+   </div>
+{% endblock %}
