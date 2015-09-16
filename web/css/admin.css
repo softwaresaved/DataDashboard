@@ -1,0 +1,51 @@
+/* Menu CSS */
+
+ul {
+    list-style-type: none;
+}
+
+#menu {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+ul#menu>li {
+    float: right;
+    padding: 1%;
+}
+
+/* Block CSS */
+
+div.block {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background-color: white;
+    padding: 2%;
+}
+
+/* Form CSS */
+div#task {
+    text-align: left;
+}
+
+div#task>div {
+    margin-top: 2%;
+}
+
+div#task_Fields {
+    text-align: justify;
+}
+
+label {
+    font-weight: bold;
+    padding-right: 2%
+}
+
+button#task_save {
+    padding: 1%;
+    margin-top: 3%;
+    
+}
