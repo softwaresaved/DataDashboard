@@ -15,7 +15,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 /**
- * @Route("/data/secured")
+ * @Route("/admin/data")
  */
 class SecuredController extends Controller
 {
@@ -51,6 +51,17 @@ class SecuredController extends Controller
     public function logoutAction()
     {
         // The security layer will intercept this request
+    }
+
+    /**
+     * Home listing
+     * @Route("/", name="_data_home")
+     * @Security("is_granted('ROLE_ADMIN')")
+     */
+    public function adminHome()
+    {
+        // The user will be directed here
+        return $this->render('AppBundle::default/home.html.twig');
     }
 
     /**
