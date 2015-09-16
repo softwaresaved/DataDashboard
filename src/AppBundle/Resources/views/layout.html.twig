@@ -1,13 +1,16 @@
-{% extends "TwigBundle::layout.html.twig" %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="{{ _charset }}" />
+        <meta name="robots" content="noindex,nofollow" />
+        <title>Software Sustainability Institute</title>
+        <link href="{{ asset('css/admin.css', absolute=true) }}" rel="stylesheet" />
+        <link href="{{ asset('bundles/framework/css/structure.css', absolute=true) }}" rel="stylesheet" />
+        <link href="{{ asset('bundles/framework/css/body.css', absolute=true) }}" rel="stylesheet" />
+        <link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
 
-{% block head %}
-    <link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}" />
-    <link rel="stylesheet" href="{{ asset('bundles/acmedemo/css/demo.css') }}" />
-{% endblock %}
-
-{% block title 'Software Sustainability Institute' %}
-
-{% block body %}
     {% for flashMessage in app.session.flashbag.get('notice') %}
         <div class="flash-message">
             <em>Notice</em>: {{ flashMessage }}
@@ -17,14 +20,17 @@
     {% block content_header %}
         <ul id="menu">
             {% block content_header_more %}
+                <li><a href="/data/secured/">Admin Home</a></li>
                 <li><a href="/">Home</a></li>
             {% endblock %}
         </ul>
 
         <div style="clear: both"></div>
-    {% endblock %}
 
     <div class="block">
         {% block content %}{% endblock %}
     </div>
 {% endblock %}
+
+   </body>
+</html>
