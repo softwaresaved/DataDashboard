@@ -67,19 +67,22 @@ print "Rows inserted $row";
 *   Method to get the existing ids into an array
 */
 function getExistingIds($config) {
-    $conf = getConfigFile($config);
-
-    $conn = new PDO("mysql:host=" . $conf['host'] . ";dbname=" . $conf['dbname'],
+   $results = array();
+    try {
+        $conf = getConfigFile($config);
+        $conn = new PDO("mysql:host=" . $conf['host'] . ";dbname=" . $conf['dbname'],
                  $conf['user'],$conf['pass']);
 
-    //prepare the statement
-    $statement = $conn->prepare("SELECT jid FROM jobs");
+        //prepare the statement
+        $statement = $conn->prepare("SELECT jid FROM jobs");
 
-    $statement->execute();
+        $statement->execute();
 
-    $results = $statement->fetchAll(PDO::FETCH_COLUMN,0);
-
-    return $results;
+        $results = $statement->fetchAll(PDO::FETCH_COLUMN,0);
+    } catch (PDOException $pde) {
+        echo $pde;
+    }
+    return array_values($results);
 }
 
 /* Data files */
