@@ -1,7 +1,41 @@
 <?php
+/**
+*  CLI Script to update the jobs database. 
+*  Requires 2 arguments:
+*  fname = the csv file to load
+*  config = the config file 
+*
+*  @author: Iain Emsley
+*/
+$fname = '';
+$config = '';
 
-//loadData();
+if (sizeof($argv) > 1) {
+    try {
+        $fname = $argv[1];
+        if (!$fname) {
+            throw new Exception ("No filename given");
+            exit();
+        }
 
+        $config = $argv[2];
+        if (!$config) {
+            throw new Exception("No config file given");
+            exit();
+        }
+ 
+        loadData($fname, $config);
+    } catch (Exception $e) {
+        print $e;
+    }
+} else {
+   print "Please check the arguments";
+   exit();
+}
+
+/**
+*  Function to load the data
+*/
 function loadData($file, $config) {
 
 if (!$file) {
@@ -38,21 +72,21 @@ while (!feof($file_handle) ) {
         $row++;
         $statement->execute(
           array(
-            'jid' => $data[0], 
-            'software' => intval($data[5]), 
-            'softtermin' => clean_yorn($data[6]), 
-            'salary' => $data[7], 
-            'salarymin' => clean_currency($data[8]), 
-            'salarymax' => clean_currency($data[9]),
-            'hours' => $data[10], 
-            'contract' => $data[11], 
-            'h1' => $data[15], 
-            'h2' => $data[16], 
-            'h3' => $data[17], 
-            'description' => $data[21], 
-            'typerole' => $data[18], 
-            'subject' => $data[19],
-            'location2' => $data[20]
+            'jid' => clean_non_existent($data[0]), 
+            'software' => clean_non_existent(intval($data[5])), 
+            'softtermin' =>clean_non_existent(clean_yorn($data[6])), 
+            'salary' => clean_non_existent($data[7]), 
+            'salarymin' => clean_non_existent(clean_currency($data[8])), 
+            'salarymax' => clean_non_existent(clean_currency($data[9])),
+            'hours' => clean_non_existent($data[10]), 
+            'contract' => clean_non_existent($data[11]), 
+            'h1' => clean_non_existent($data[15]), 
+            'h2' => clean_non_existent($data[16]), 
+            'h3' => clean_non_existent($data[17]), 
+            'description' => clean_non_existent($data[21]), 
+            'typerole' => clean_non_existent($data[18]), 
+            'subject' => clean_non_existent($data[19]),
+            'location2' => clean_non_existent($data[20])
           )
         );
      }
@@ -61,6 +95,12 @@ while (!feof($file_handle) ) {
 
 fclose($file_handle);
 print "Rows inserted $row";
+}
+
+
+function clean_non_existent($field) {
+   $f = ($field !== null) ? $field : '';
+   return $f;
 }
 
 /**
@@ -87,7 +127,9 @@ function getExistingIds($config) {
 
 /* Data files */
 
-//function to convert Y/N into 1/0
+/**
+*  Function to convert Y/N into 1/0
+*/
 function clean_yorn($incoming) {
     return ($incoming == 'N') ? 0 : 1;
 }
