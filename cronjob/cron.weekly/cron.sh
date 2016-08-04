@@ -1,7 +1,7 @@
 #!/bin/bash
 
 GIT_DIR = /tmp/visualisation_repo
-DATA_DIR = /Public/Data/Fellows
+DATA_DIR = /var/www/html/ssi/drupal/sites/default/files/dashboard
 
 #Delete the repository directory and recreate
 rm -rf $GIT_DIR

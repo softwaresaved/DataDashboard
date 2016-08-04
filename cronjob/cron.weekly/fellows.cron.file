@@ -1,5 +1,5 @@
 #This cronjob will be executed at 4am every Monday
-0 4 * * 1 root cron.sh
+0 4 * * 1 www-data cron.sh
 
 #Variable decleration
 
