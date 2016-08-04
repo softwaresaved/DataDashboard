@@ -1,5 +1,5 @@
 #This cronjob will be executed at 4am every Monday
-0 4 * * 1 root /cronjob/cron.sh
+0 4 * * 1 root cron.sh
 
 #Variable decleration
 
@@ -7,5 +7,3 @@ SHELL=/bin/bash
 PATH=/sbin:/sbin:/usr/sbin:/usr/bin
 MAILTO=root
 HOME=/
-DATADIR=/Public/web/data
-VISUAL_GIT=/tmp/Visualisation
