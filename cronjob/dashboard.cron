@@ -1,9 +1,2 @@
 #This cronjob will be executed at 4am every Monday
-0 4 * * 1 www-data cron.sh
-
-#Variable decleration
-
-SHELL=/bin/bash
-PATH=/sbin:/sbin:/usr/sbin:/usr/bin
-MAILTO=www-data
-HOME=/
+0 4 * * 1 /bin/bash <path to the dashboard repository> cron.sh
