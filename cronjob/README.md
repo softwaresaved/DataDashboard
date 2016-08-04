@@ -12,4 +12,4 @@ crontab -r
 crontab -e
 
 #copy the command from the dashbpard.cron file with correct file path.
-0 4 * * 1 /bin/bash <path to the dashboard repository>cron.sh
+0 4 * * 1 /bin/bash path-to-the-dashboard-repository-cron.sh
