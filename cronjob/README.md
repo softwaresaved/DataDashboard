@@ -5,9 +5,11 @@ To run this cronjob change the crontab manually and copy the command with the ri
 
 Command to do this is:
 
-#remove earlier cronjab from crontab
+#remove earlier cronjob from crontab
 crontab -r
 
+#Add new job to crontab
 crontab -e
+
 #copy the command from the dashbpard.cron file with correct file path.
-0 4 * * 1 /bin/bash <path to the dashboard repository>cron.shh
+0 4 * * 1 /bin/bash <path to the dashboard repository>cron.sh
