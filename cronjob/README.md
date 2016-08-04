@@ -4,4 +4,4 @@ To run this cronjob change the crontab to use the dashboard.cron file.
 
 Command to do this is:
 
-crontab -l <path to cron file>
+crontab -l path-to-cron-file
