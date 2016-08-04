@@ -5,5 +5,5 @@
 
 SHELL=/bin/bash
 PATH=/sbin:/sbin:/usr/sbin:/usr/bin
-MAILTO=root
+MAILTO=www-data
 HOME=/
